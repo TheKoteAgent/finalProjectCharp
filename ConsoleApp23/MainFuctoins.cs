@@ -31,6 +31,8 @@ namespace MainFunc
 
         public void addSprava()
         {
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Enter name:");
             string name = Console.ReadLine();
 
@@ -42,12 +44,27 @@ namespace MainFunc
             {
                 Sprava newSprava = new Sprava(name, date);
                 spraviList.Add(newSprava);
-                Console.WriteLine("Sprava added");
+                Console.WriteLine("Sprava added");             
+
             }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("enter 1 to back to menu\n->");
+            int a;
+            string aa = Console.ReadLine();
+            if (int.TryParse(aa, out a))
+            {
+                if (a == 1)
+                {
+                    Console.Clear();
+                }
+            }
+            Console.ResetColor();
+            Console.ResetColor();
         }
 
         public void DeleteSprava()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Enter name:");
             string name = Console.ReadLine();
             var sprava = spraviList.FirstOrDefault(s => s.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
@@ -61,9 +78,23 @@ namespace MainFunc
             {
                 Console.WriteLine("not found");
             }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("enter 1 to back to menu\n->");
+            int a;
+            string aa = Console.ReadLine();
+            if (int.TryParse(aa, out a))
+            {
+                if (a == 1)
+                {
+                    Console.Clear();
+                }
+            }
+            Console.ResetColor();
+            Console.ResetColor();
         }
         public void SearchByName()
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Enter name:");
             string name = Console.ReadLine();
             var res = spraviList.Where(s => s.Name.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
@@ -80,11 +111,28 @@ namespace MainFunc
             {
                 Console.WriteLine("not found");
             }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("enter 1 to back to menu\n->");
+            int a;
+            string aa = Console.ReadLine();
+            if (int.TryParse(aa, out a))
+            {
+                if (a == 1)
+                {
+                    Console.Clear();
+                }
+            }
+            Console.ResetColor();
+            Console.ResetColor();
         }
 
         public void SaveToFile()
         {
-            string filePath = "spravi.txt";
+            Console.ForegroundColor = ConsoleColor.Magenta;
+
+            Console.WriteLine("Enter path:");
+            string filePath = Console.ReadLine();
+
             using (StreamWriter wr = new StreamWriter(filePath))
             {
                 foreach (var sprava in spraviList)
@@ -93,15 +141,44 @@ namespace MainFunc
                 }
             }
             Console.WriteLine("Spravi saved");
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Enter 1 to back to menu\n->");
+
+            int a;
+            string aa = Console.ReadLine();
+            if (int.TryParse(aa, out a))
+            {
+                if (a == 1)
+                {
+                    Console.Clear();
+                }
+            }
+
+            Console.ResetColor();
         }
+
         public void Show()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Spravi:");
             for (int i = 0; i < spraviList.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {spraviList[i]}");
             }
-            
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("enter 1 to back to menu\n->");
+            int a;
+            string aa = Console.ReadLine();
+            if (int.TryParse(aa, out a))
+            {
+                if (a == 1)
+                {
+                    Console.Clear();
+                }
+            }
+            Console.ResetColor();
+            Console.ResetColor();
         }
     }
 }

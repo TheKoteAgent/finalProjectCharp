@@ -11,7 +11,27 @@ namespace ConsoleApp23
 
             while (true)
             {
-                Console.WriteLine("Welcome!\n1 - show sprav\n2 - add sprava\n3 - delete sprava\n4 - searche by name\n5 - save sprava to file");
+                Console.ForegroundColor = ConsoleColor.Cyan;           
+                Console.WriteLine("\tWelcome!");
+                Console.ResetColor();
+                Console.WriteLine("------------------------|");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("1 - show spravi         |");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("2 - add sprava          |");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("3 - delete sprava       |");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("4 - searche by name     |");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("5 - save sprava to file |");
+                Console.ResetColor();
+                Console.WriteLine("------------------------|");
+                
                 string choi = Console.ReadLine();
                 if (int.TryParse(choi, out cho))
                 {
@@ -35,6 +55,7 @@ namespace ConsoleApp23
                         default:
                             Console.WriteLine("incorect choice");
                             break;
+                            
                     }
                 }
             }
